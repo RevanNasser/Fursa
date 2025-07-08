@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "jobs",
+  "info": {
+    "singularName": "job",
+    "pluralName": "jobs",
+    "displayName": "job"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Location": {
+      "type": "string"
+    },
+    "Company": {
+      "type": "string"
+    },
+    "Salary": {
+      "type": "string"
+    },
+    "URL": {
+      "type": "text"
+    },
+    "Long_Description": {
+      "type": "richtext"
+    },
+    "Type": {
+      "type": "enumeration",
+      "enum": [
+        "Full-time",
+        "Contract",
+        "COOP",
+        "internship",
+        "GDP"
+      ]
+    }
+  }
+}
