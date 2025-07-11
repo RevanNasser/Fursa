@@ -11,7 +11,7 @@ export default async function JobDetails({ params }: { params: { id: string } })
 
   return (
     <div className="container mx-auto py-10 max-w-2xl">
-      <h1 className="text-3xl font-bold mb-4 text-green-800">{job.Title}</h1>
+      <h1 className="text-3xl font-bold font-naskhBold mb-4 text-green-800">{job.Title}</h1>
       <p className="mb-2"><span className="font-semibold">الشركة:</span> {job.Company}</p>
       <p className="mb-2"><span className="font-semibold">الموقع:</span> {job.Location}</p>
       <p className="mb-2"><span className="font-semibold">الراتب:</span> {job.Salary}</p>

@@ -2,17 +2,13 @@
 import Image from 'next/image';
 import React, { useState } from 'react';
 // import { useTranslation } from 'react-i18next';
-import LanguageSwitcher from './LanguageSwitcher';
-import { useTranslation } from 'react-i18next';
 import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Header() {
-  const [lampOn, setLampOn] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { t } = useTranslation();
+  const [lampOn, setLampOn] = useState(false);
 
-const navItemKeys = ['whyFursa', 'graduatePrograms', 'certifications', 'jobOpportunities'];
 
 const navItems = [
   { href: '/why-fursa', label: 'لماذا فرصة؟' },
@@ -23,8 +19,9 @@ const navItems = [
 
   return (
     <div className="relative">
+      {/* Floating Lamp */}
       <div
-        className="absolute top-[-10px] left-6 z-50 cursor-pointer"
+        className="absolute top-[-10px] left-6 z-50 cursor-pointer flex items-center gap-2"
         onClick={() => setLampOn((prev) => !prev)}
         title={lampOn ? 'إطفاء المصباح' : 'تشغيل المصباح'}
       >
@@ -40,28 +37,38 @@ const navItems = [
           }`}
         />
       </div>
+      <header className="bg-[#2b3830] backdrop-blur-md shadow-lg top-0 z-40">
+        <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
+          <div className="flex flex-row-reverse items-center h-16 relative">
+            {/* Logo on the right */}
+            <div className="flex-shrink-0">
+              <Link href="/">
+                <Image
+                  src="/assets/Fursa.svg"
+                  alt="Fursa Logo"
+                  width={116}
+                  height={66}
+                  className="h-[50px] w-auto cursor-pointer"
+                />
+              </Link>
+            </div>
 
-      <header className="bg-[#2b3830] backdrop-blur-md shadow-lg sticky top-0 z-40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-         
+            {/* Centered nav */}
+            <nav className="flex-1 flex justify-center">
+              {navItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="px-3 py-2 rounded-md text-sm font-medium text-[#e2e2e2] hover:text-[#2b3830] hover:bg-white/70 transition-colors duration-200 cursor-pointer"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
 
-        <nav className="hidden md:flex space-x-reverse space-x-8">
-  {navItems.map((item) => (
-    <Link
-      key={item.href}
-      href={item.href}
-      className="px-3 py-2 rounded-md text-sm font-medium text-[#e2e2e2] hover:text-[#2b3830] hover:bg-white/70 transition-colors duration-200 cursor-pointer"
-    >
-      {item.label}
-    </Link>
-  ))}
-</nav>
-
-            <div className="flex items-center space-x-4 space-x-reverse">
-                         <LanguageSwitcher />
-
-
+            {/* Controls on the left */}
+            <div className="flex-shrink-0 flex items-center space-x-4 space-x-reverse">
+              {/* <LanguageSwitcher /> */}
               <div className="md:hidden">
                 <button
                   onClick={() => setIsMenuOpen(!isMenuOpen)}

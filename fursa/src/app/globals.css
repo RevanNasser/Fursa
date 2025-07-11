@@ -19,8 +19,30 @@
   }
 }
 
+@font-face {
+  font-family: 'NotoNaskhArabic-Regular';
+  src: url('/assets/fonts/alfont_com_AlFont_com_NotoNaskhArabic-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'NotoNaskhArabic-Bold';
+  src: url('/assets/fonts/alfont_com_NotoNaskhArabic-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Lifta-Black';
+  src: url('/assets/fonts/Lifta-Black.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
-font-family: "Tahoma", "Geeza Pro", "Arial", sans-serif;
+  font-family: 'NotoNaskhArabic-Regular', "Tahoma", "Geeza Pro", "Arial", sans-serif;
 }
