@@ -11,10 +11,10 @@ export default function Header() {
 
 
 const navItems = [
-  { href: '/why-fursa', label: 'لماذا فرصة؟' },
-  { href: '/gdp-programs', label: 'برامج تطوير الخريجين' },
-  { href: '/certifications', label: 'الشهادات الاحترافية' },
   { href: '/job-opportunities', label: 'فرص وظيفية' },
+  { href: '/certifications', label: 'الشهادات الاحترافية' },
+  { href: '/gdp-programs', label: 'برامج تطوير الخريجين' },
+  { href: '/why-fursa', label: 'لماذا فرصة؟' },
 ];
 
   return (

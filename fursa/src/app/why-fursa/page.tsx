@@ -1,7 +1,7 @@
 export default function WhyFursa() {
   return (
     <div className="container mx-auto py-16 px-4 max-w-3xl" dir="rtl">
-      <h1 className="text-3xl font-bold font-naskhBold text-green-800 mb-6">لماذا فرصة؟</h1>
+      <h1 className="text-3xl font-bold text-green-800 mb-6">لماذا فرصة؟</h1>
       <p className="text-lg text-gray-700 mb-4">
         منصة فرصة هي بوابتك الأولى لاكتشاف أفضل الفرص الوظيفية وبرامج تطوير الخريجين والشهادات الاحترافية في المملكة العربية السعودية. نحن نؤمن بأن كل خريج يستحق بداية قوية في سوق العمل، ولهذا نقدم لك محتوى مخصص، أدوات ذكية، وتجربة استخدام سلسة تساعدك على تحقيق طموحاتك المهنية.
       </p>

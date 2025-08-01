@@ -6,15 +6,13 @@ import { motion } from 'framer-motion';
 interface JobAPI {
   id: number;
   documentId: string;
-  attributes: {
-    Title: string;
-    Company: string;
-    Location: string;
-    Salary: string;
-    URL?: string;
-    Long_Description: string;
-    Type: string;
-  };
+  Title: string;
+  Company: string;
+  Location: string;
+  Salary: string;
+  URL?: string;
+  Long_Description: string;
+  Type: string;
 }
 
 export default function Home() {
@@ -24,10 +22,10 @@ export default function Home() {
   const [selectedType, setSelectedType] = useState<string | null>(null);
 
   const jobTypes = [
-    { value: 'Full-time', label: 'دوام كامل' },
-    { value: 'Contract', label: 'عقد عمل / عمل بعقد' },
-    { value: 'COOP', label: 'تدريب تعاوني' },
     { value: 'Internship', label: 'تدريب (صيفي أو ميداني)' },
+    { value: 'COOP', label: 'تدريب تعاوني' },
+    { value: 'Contract', label: 'عقد عمل / عمل بعقد' },
+    { value: 'Full-time', label: 'دوام كامل' },
   ];
 
   useEffect(() => {
@@ -56,36 +54,44 @@ export default function Home() {
               transition={{ duration: 0.7 }}
             >
               <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold font-naskhBold text-gray-900 mb-4">
-                  {/* {t('sections.featured_jobs')} */}
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-right">
+                  فرص وظيفية
                 </h2>
-                <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                <p className="text-xl text-gray-600 max-w-2xl mx-auto text-right leading-relaxed">
                   اكتشف أفضل الفرص المتاحة للخريجين الجدد في أكبر الشركات السعودية
                 </p>
               </div>
             </motion.div>
 
-          {/* Filter Buttons */}
-          <div className="flex flex-wrap gap-2 justify-center mb-8 w-full max-w-3xl mx-auto">
+          {/* Filter Buttons - Individual */}
+          <div className="flex flex-wrap gap-3 justify-center mb-8 w-full max-w-4xl mx-auto" dir="rtl">
+            <button
+              className={`px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 cursor-pointer border ${
+                selectedType === null 
+                  ? 'bg-green-600 text-white border-green-600' 
+                  : 'bg-white text-gray-700 border-gray-300 hover:bg-green-50 hover:border-green-300'
+              }`}
+              onClick={() => setSelectedType(null)}
+            >
+              الكل
+            </button>
             {jobTypes.map((type) => (
               <button
                 key={type.value}
-                className={`px-4 py-2 rounded-full font-bold border ${selectedType === type.value ? 'bg-green-600 text-white' : 'bg-white text-green-700 border-green-600'} transition min-w-[120px]`}
+                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 cursor-pointer border ${
+                  selectedType === type.value 
+                    ? 'bg-green-600 text-white border-green-600' 
+                    : 'bg-white text-gray-700 border-gray-300 hover:bg-green-50 hover:border-green-300'
+                }`}
                 onClick={() => setSelectedType(type.value)}
               >
                 {type.label}
               </button>
             ))}
-            <button
-              className={`px-4 py-2 rounded-full font-bold border ${selectedType === null ? 'bg-green-600 text-white' : 'bg-white text-green-700 border-green-600'} transition min-w-[120px]`}
-              onClick={() => setSelectedType(null)}
-            >
-              الكل
-            </button>
           </div>
 
-          {loading && <div className="text-center">جاري تحميل الوظائف...</div>}
-          {error && <div className="text-center text-red-500">{error}</div>}
+          {loading && <div className="text-center text-lg text-gray-600">جاري تحميل الوظائف...</div>}
+          {error && <div className="text-center text-red-500 text-lg">{error}</div>}
 
             <motion.div
               initial={{ opacity: 0, y: 40 }}
@@ -99,6 +105,7 @@ export default function Home() {
                     <JobCard
                       key={job.id}
                       id={job.id}
+                      documentId={job.documentId}
                       title={job.Title}
                       company={job.Company}
                       location={job.Location}
@@ -111,7 +118,7 @@ export default function Home() {
             </motion.div>
 
           <div className="text-center mt-12">
-            <button className="text-green-600 hover:text-green-700 font-semibold text-lg transition-colors hover:underline">
+            <button className="text-green-600 hover:text-green-700 font-semibold text-lg transition-colors hover:underline text-right">
               عرض جميع الوظائف ←
             </button>
           </div>

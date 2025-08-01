@@ -1,7 +1,7 @@
 export default function JobOpportunities() {
   return (
     <div className="container mx-auto py-16 px-4 max-w-3xl" dir="rtl">
-      <h1 className="text-3xl font-bold font-naskhBold text-green-800 mb-6">فرص وظيفية</h1>
+      <h1 className="text-3xl font-bold text-green-800 mb-6">فرص وظيفية</h1>
       <p className="text-lg text-gray-700 mb-4">
         هنا ستجد أحدث الفرص الوظيفية المتاحة للخريجين الجدد في كبرى الشركات السعودية. يمكنك تصفح الوظائف، استخدام التصفية حسب النوع، والتقديم مباشرة من خلال المنصة.
       </p>
