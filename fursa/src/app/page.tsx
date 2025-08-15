@@ -103,7 +103,6 @@ export default function Home() {
                   .map((job) => (
                     <JobCard
                       key={job.id}
-                      id={job.id}
                       documentId={job.documentId}
                       title={job.Title}
                       company={job.Company}

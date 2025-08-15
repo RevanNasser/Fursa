@@ -4,7 +4,6 @@ import { Briefcase } from 'lucide-react';
 import Link from 'next/link';
 
 interface JobCardProps {
-  id: number;
   documentId: string;
   title: string;
   company: string;
