@@ -5,6 +5,7 @@ import { Card, CardContent, CardFooter, CardHeader } from '../../components/ui/C
 import { Briefcase } from 'lucide-react';
 import Link from 'next/link';
 
+
 interface JobData {
   id: number;
   documentId: string;
@@ -19,27 +20,25 @@ interface JobData {
   updatedAt: string;
 }
 
-// Type params directly in the function signature
-export default async function JobDetails({
-  params,
-}: {
-  params: { id: string };
-}) {
-  const res = await fetch(
-    "https://jolly-wealth-13247160de.strapiapp.com/api/jobs"
-  );
+
+
+export default async function JobDetails(props: { params: { documentId: string } }) {
+  const documentId = props.params.documentId; // access safely here
+
+  const res = await fetch("https://jolly-wealth-13247160de.strapiapp.com/api/jobs", {
+    cache: "no-store",
+  });
   if (!res.ok) return notFound();
+
   const data = await res.json();
-  const jobs = data.data || [];
+  const jobs: JobData[] = data.data || [];
 
-  const job = jobs.find((job: JobData) => job.documentId === params.id);
+  const job = jobs.find((job) => job.documentId === documentId);
   if (!job) return notFound();
-
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4" dir="rtl">
       <div className="w-full max-w-3xl">
-        {/* Job Card - Same style as jobs list but larger */}
         <Card className="border-0 shadow-2xl bg-white rounded-2xl p-0 text-right" dir="rtl">
           <CardHeader className="pb-2 flex flex-row items-center gap-4 border-b border-green-200 bg-green-100 rounded-t-2xl">
             <div className="w-16 h-16 bg-green-200 rounded-lg flex items-center justify-center">
@@ -65,7 +64,6 @@ export default async function JobDetails({
               <span className="text-lg">{job.Type}</span>
             </div>
             
-            {/* Job Description */}
             {job.Long_Description && (
               <div className="mt-6 pt-6 border-t border-gray-200">
                 <h4 className="font-bold text-xl text-gray-900 mb-4">الوصف الوظيفي:</h4>
@@ -107,4 +105,4 @@ export default async function JobDetails({
       </div>
     </div>
   );
-} 
+}
