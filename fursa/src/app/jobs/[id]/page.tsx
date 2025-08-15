@@ -19,17 +19,22 @@ interface JobData {
   updatedAt: string;
 }
 
-export default async function JobDetails({ params }: { params: { id: string } }) {
-  // First, get all jobs to find the one with matching documentId
-  const res = await fetch("https://jolly-wealth-13247160de.strapiapp.com/api/jobs");
+// Type params directly in the function signature
+export default async function JobDetails({
+  params,
+}: {
+  params: { id: string };
+}) {
+  const res = await fetch(
+    "https://jolly-wealth-13247160de.strapiapp.com/api/jobs"
+  );
   if (!res.ok) return notFound();
   const data = await res.json();
   const jobs = data.data || [];
-  
-  // Find the job by documentId (which is what we're using as the route parameter)
+
   const job = jobs.find((job: JobData) => job.documentId === params.id);
-  
   if (!job) return notFound();
+
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4" dir="rtl">
