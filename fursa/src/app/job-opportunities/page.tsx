@@ -11,7 +11,7 @@ export default function JobOpportunities() {
         <li>تفاصيل كل وظيفة متوفرة مع إمكانية التقديم المباشر.</li>
         <li>تحديث مستمر للفرص الجديدة.</li>
       </ul>
-      <a href="/" className="inline-block mt-6 px-6 py-2 bg-green-600 text-white rounded-lg font-bold hover:bg-green-700 transition">العودة للصفحة الرئيسية</a>
+      <link href="/" className="inline-block mt-6 px-6 py-2 bg-green-600 text-white rounded-lg font-bold hover:bg-green-700 transition">العودة للصفحة الرئيسية</link>
     </div>
   );
 } 

@@ -11,10 +11,9 @@ interface JobCardProps {
   location: string;
   salary: string;
   url?: string;
-  long_description?: string;
 }
 
-const JobCard = ({ id, documentId, title, company, location, salary, url, long_description }: JobCardProps) => {
+const JobCard = ({  documentId, title, company, location, salary, url }: JobCardProps) => {
   return (
     <Card className="group transition-all duration-300 border-0 shadow-2xl bg-white rounded-2xl p-0 text-right" dir="rtl">
       <CardHeader className="pb-2 flex flex-row items-center gap-4 border-b border-green-200 bg-green-100 rounded-t-2xl">
@@ -53,7 +52,7 @@ const JobCard = ({ id, documentId, title, company, location, salary, url, long_d
             className="flex-1 font-bold border-green-600 text-green-700 hover:bg-green-50 hover:text-green-800"
             asChild
           >
-            <a href={url} target="_blank" rel="noopener noreferrer">تقدم الآن</a>
+            <link href={url}  rel="noopener noreferrer">تقدم الآن</link>
           </Button>
         ) : (
           <Button 

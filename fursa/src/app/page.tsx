@@ -11,7 +11,6 @@ interface JobAPI {
   Location: string;
   Salary: string;
   URL?: string;
-  Long_Description: string;
   Type: string;
 }
 
@@ -111,7 +110,6 @@ export default function Home() {
                       location={job.Location}
                       salary={job.Salary}
                       url={job.URL}
-                      long_description={job.Long_Description}
                     />
                   ))}
               </div>
