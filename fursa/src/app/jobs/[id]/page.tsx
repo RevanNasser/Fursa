@@ -78,7 +78,7 @@ export default async function JobDetails({ params }: { params: { id: string } })
                 className="flex-1 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-bold border-0"
                 asChild
               >
-                <link href={job.URL}  rel="noopener noreferrer">التقديم على الوظيفة</link>
+                <Link href={job.URL}  rel="noopener noreferrer">التقديم على الوظيفة</Link>
               </Button>
             ) : (
               <Button 

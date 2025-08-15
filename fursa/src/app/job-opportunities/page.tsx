@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function JobOpportunities() {
   return (
     <div className="container mx-auto py-16 px-4 max-w-3xl" dir="rtl">
@@ -11,7 +13,7 @@ export default function JobOpportunities() {
         <li>تفاصيل كل وظيفة متوفرة مع إمكانية التقديم المباشر.</li>
         <li>تحديث مستمر للفرص الجديدة.</li>
       </ul>
-      <link href="/" className="inline-block mt-6 px-6 py-2 bg-green-600 text-white rounded-lg font-bold hover:bg-green-700 transition">العودة للصفحة الرئيسية</link>
+      <Link href="/" className="inline-block mt-6 px-6 py-2 bg-green-600 text-white rounded-lg font-bold hover:bg-green-700 transition">العودة للصفحة الرئيسية</Link>
     </div>
   );
 } 

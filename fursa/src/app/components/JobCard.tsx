@@ -51,7 +51,7 @@ const JobCard = ({  documentId, title, company, location, salary, url }: JobCard
             className="flex-1 font-bold border-green-600 text-green-700 hover:bg-green-50 hover:text-green-800"
             asChild
           >
-            <link href={url}  rel="noopener noreferrer">تقدم الآن</link>
+            <Link href={url}  rel="noopener noreferrer">تقدم الآن</Link>
           </Button>
         ) : (
           <Button 
