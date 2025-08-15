@@ -21,7 +21,7 @@ interface JobData {
 
 export default async function JobDetails({ params }: { params: { id: string } }) {
   // First, get all jobs to find the one with matching documentId
-  const res = await fetch("http://localhost:1337/api/jobs");
+  const res = await fetch("https://jolly-wealth-13247160de.strapiapp.com/api/jobs");
   if (!res.ok) return notFound();
   const data = await res.json();
   const jobs = data.data || [];

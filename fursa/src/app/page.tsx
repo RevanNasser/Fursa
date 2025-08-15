@@ -31,7 +31,7 @@ export default function Home() {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const res = await fetch("http://localhost:1337/api/jobs");
+        const res = await fetch("https://jolly-wealth-13247160de.strapiapp.com/api/jobs");
         if (!res.ok) throw new Error("Failed to fetch jobs");
         const data = await res.json();
         setJobs(data.data || []);
