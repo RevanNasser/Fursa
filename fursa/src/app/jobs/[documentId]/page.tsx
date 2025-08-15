@@ -5,36 +5,34 @@ import { Card, CardContent, CardFooter, CardHeader } from '../../components/ui/C
 import { Briefcase } from 'lucide-react';
 import Link from 'next/link';
 
-
 interface JobData {
-  id: number;
-  documentId: string;
-  Title: string;
-  Company: string;
-  Location: string;
-  Salary: string;
-  URL?: string;
-  Long_Description?: string;
-  Type: string;
-  publishedAt: string;
-  updatedAt: string;
+  id: number
+  documentId: string
+  Title: string
+  Company: string
+  Location: string
+  Salary: string
+  URL?: string
+  Long_Description?: string
+  Type: string
+  publishedAt: string
+  updatedAt: string
 }
 
-
-
-export default async function JobDetails(props: { params: { documentId: string } }) {
-  const documentId = props.params.documentId; // access safely here
+export default async function JobDetails(props: { params: Promise<{ documentId: string }> }) {
+  const params = await props.params
+  const documentId = params.documentId
 
   const res = await fetch("https://jolly-wealth-13247160de.strapiapp.com/api/jobs", {
     cache: "no-store",
-  });
-  if (!res.ok) return notFound();
+  })
+  if (!res.ok) return notFound()
 
-  const data = await res.json();
-  const jobs: JobData[] = data.data || [];
+  const data = await res.json()
+  const jobs: JobData[] = data.data || []
 
-  const job = jobs.find((job) => job.documentId === documentId);
-  if (!job) return notFound();
+  const job = jobs.find((job) => job.documentId === documentId)
+  if (!job) return notFound()
 
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4" dir="rtl">
@@ -63,7 +61,7 @@ export default async function JobDetails(props: { params: { documentId: string }
               <span className="font-semibold ml-3">نوع الوظيفة:</span>
               <span className="text-lg">{job.Type}</span>
             </div>
-            
+
             {job.Long_Description && (
               <div className="mt-6 pt-6 border-t border-gray-200">
                 <h4 className="font-bold text-xl text-gray-900 mb-4">الوصف الوظيفي:</h4>
@@ -76,26 +74,28 @@ export default async function JobDetails(props: { params: { documentId: string }
 
           <CardFooter className="pt-4 border-t border-gray-100 bg-white rounded-b-2xl flex flex-row-reverse gap-3 p-6">
             {job.URL ? (
-              <Button 
-                size="sm" 
+              <Button
+                size="sm"
                 className="flex-1 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-bold border-0"
                 asChild
               >
-                <Link href={job.URL}  rel="noopener noreferrer">التقديم على الوظيفة</Link>
+                <Link href={job.URL} rel="noopener noreferrer">
+                  التقديم على الوظيفة
+                </Link>
               </Button>
             ) : (
-              <Button 
-                size="sm" 
+              <Button
+                size="sm"
                 className="flex-1 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-bold border-0"
               >
                 تقدم الآن
               </Button>
             )}
-            
-            <Button 
+
+            <Button
               variant="outline"
-              size="sm" 
-              className="flex-1 font-bold border-green-600 text-green-700 hover:bg-green-50 hover:text-green-800"
+              size="sm"
+              className="flex-1 font-bold border-green-600 text-green-700 hover:bg-green-50 hover:text-green-800 bg-transparent"
               asChild
             >
               <Link href="/">العودة للصفحة الرئيسية</Link>
@@ -104,5 +104,5 @@ export default async function JobDetails(props: { params: { documentId: string }
         </Card>
       </div>
     </div>
-  );
+  )
 }
