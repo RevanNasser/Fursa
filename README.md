@@ -1,9 +1,5 @@
 # Fursa
 
-A job opportunities platform for new graduates in Saudi Arabia.
-
-## Overview
-
 Fursa is a full-stack website that helps graduates find job opportunities, graduate development programs, and professional certifications.
 
 
